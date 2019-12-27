@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 //设置mongodb连接地址
-const mongURL = "mongodb://localhost:27017/gtest_db"
+const mongURL = "mongodb://localhost:27017/ddd"
 
 /* 连接mongodb设置
 * DeprecationWarning：不建议使用当前的URL字符串解析器，并将在以后的版本中将其删除。
