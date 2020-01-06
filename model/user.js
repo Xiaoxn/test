@@ -18,14 +18,21 @@ const author = new Schema({
 //创建一个Model 第一个参数是MongoDB中的表名;第二个是刚创建的Schema
 const NewModel = mongoose.model('author', author)
 
-NewModel.create({
+/* NewModel.create({
   auther_name:"张三",
   author_age:4
 },(err,doc) => {
    if(!err){
-     console.log("添加成功")
-     console.log(doc)
+     //console.log("添加成功")
+     //console.log(doc)
    }
-})
+}) */
 
-module.exports = NewModel
+const getUser = () => {
+  //加上.exec()则将会返回成为一个完整的 promise 对象
+  return NewModel.find().exec()
+}
+
+module.exports = {
+  getUser
+}
