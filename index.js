@@ -1,21 +1,24 @@
 //加载express模块
 const express = require('express')
 const app = express()
-const process = require('process')
 require('./mongo/connection.js')
 
-const user =require('./model/user.js')
+const getUser = require('./model/user.js')
 
 app.get('/',(req,res) => res.send('Hello World!'))
 
 app.listen(3000, () => console.log('Example app listening on port 3000'))
 
-//console.log("文件的路径"+__dirname); //文件的路径E:\ZSMdemo\test
-
-app.use('api/author',user)
+//console.log("文件的路径"+__dirname); //文件的路径E:\ZSMdemo\test;静态文件地址
+//app.use('/assets', express.static(path.join(__dirname, 'assets')))
 
 app.get('/user',(req,res) => {
-  res.send('hello world')
+  console.log(getUser)
+  res.send({
+    code:1000,
+    data:getUser,
+    msg:'success'
+  })
 })
 
 app.post('/Name',(req,res) => {
